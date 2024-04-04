@@ -1,3 +1,4 @@
+// http://ur4uqu.com/
 /////// http://ur4uqu.com/cam/user/Main/tmp/v2024-02-22_11-22-47.jpg
 #include <EtherCard.h>
  

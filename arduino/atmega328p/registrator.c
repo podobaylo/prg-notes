@@ -1,3 +1,4 @@
+// http://ur4uqu.com/
 ///////// http://ur4uqu.com/cam/user/Main/tmp/v2024-01-26_17-06-11.jpg
 #include <SPI.h>
 #include <Adafruit_Sensor.h>
