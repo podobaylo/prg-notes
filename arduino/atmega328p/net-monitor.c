@@ -1,3 +1,4 @@
+/////// http://ur4uqu.com/cam/user/Main/tmp/v2024-02-22_11-22-47.jpg
 #include <EtherCard.h>
  
 static byte mymac[] = { 0x74,0x69,0x69,0x2D,0x00,0x01 };
