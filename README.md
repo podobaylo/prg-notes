@@ -1,2 +1,1 @@
-# php-notes
-one string - one note
+# prg-notes
