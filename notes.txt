@@ -1,4 +1,1 @@
 # https://github.com/podobaylo/php-notes/blob/master/notes.txt
-test1
-test2
-test3
