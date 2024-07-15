@@ -24,3 +24,67 @@ Linux System Inspector - это легковесная утилита коман
 - Компилятор GCC
 - Библиотека math (libm)
 
+## Установка
+
+1. Клонируйте репозиторий:
+
+git clone https://github.com/podobaylo/prg-notes.git
+text
+
+2. Перейдите в директорию проекта:
+
+cd prg-notes/linux/inspect-linux
+text
+
+3. Скомпилируйте программу:
+
+gcc -o inspect inspect-linux.c -lm
+text
+
+## Использование
+
+Запустите скомпилированную программу:
+
+
+./inspect
+text
+
+Вывод будет представлен в формате CSV, удобном для дальнейшей обработки:
+
+
+HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
+text
+
+## Примеры использования
+
+1. Сохранение вывода в файл:
+
+./inspect > system_info.csv
+text
+
+2. Периодический мониторинг с помощью cron:
+Добавьте в crontab строку:
+
+*/5 * * * * /path/to/inspect >> /var/log/system_monitor.log
+text
+
+3. Извлечение конкретных данных:
+
+./inspect | awk -F',' '{print $2","$4","$18}' # Выводит hostname, CPU cores и IP
+text
+
+## Вклад в проект
+
+Приветствуются предложения по улучшению кода, добавлению новых функций или исправлению ошибок. Пожалуйста, создавайте issues или отправляйте pull requests.
+
+## Лицензия
+
+[MIT License](https://opensource.org/licenses/MIT)
+
+## Автор
+
+[prg.in.ua]
+
+---
+
+Надеемся, что этот инструмент будет полезен для системных администраторов, DevOps инженеров и всех, кто работает с системами Linux!
