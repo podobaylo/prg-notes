@@ -36,16 +36,16 @@ cd prg-notes/linux/inspect-linux
 
 3. Скомпилируйте программу:
 
-gcc -static -O2 -o inspect inspect-linux.c -lm
+gcc -static -O2 -o si inspect-linux.c -lm
 
-( gcc -o inspect inspect-linux.c )
+( gcc -o si inspect-linux.c )
 
 ## Использование
 
 Запустите скомпилированную программу:
 
 
-./inspect
+./si
 
 
 Вывод будет представлен в формате CSV, удобном для дальнейшей обработки:
@@ -60,12 +60,12 @@ HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
 
 1. Сохранение вывода в файл:
 
-./inspect > system_info.csv
+./si > system_info.csv
 
 2. Периодический мониторинг с помощью cron:
 Добавьте в crontab строку:
 
-*/5 * * * * /path/to/inspect >> /var/log/system_monitor.log
+*/5 * * * * /path/to/si >> /var/log/system_monitor.log
 
 3. Извлечение конкретных данных:
 
