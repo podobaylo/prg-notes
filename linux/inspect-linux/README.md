@@ -78,31 +78,45 @@ HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
 1. Создайте Ansible playbook `inspect_systems.yml`:
 
 ```yaml
----
+---                                                                                            
 - name: Inspect systems
-  hosts: all
-  become: yes
-  tasks:
-    - name: Copy inspect binary
+  hosts: all                                                                                   
+  become: yes         
+  tasks:                                       
+    - name: Check if inspect binary exists
+      stat:
+        path: /usr/local/bin/si
+      register: si_binary
+
+    - name: Copy inspect binary if not exists
       copy:
-        src: /path/to/inspect
-        dest: /tmp/inspect
+        src: /usr/local/bin/si
+        dest: /usr/local/bin/si
         mode: '0755'
+      when: not si_binary.stat.exists
 
     - name: Run inspect
-      command: /tmp/inspect
+      command: /usr/local/bin/si
       register: inspect_result
 
-    - name: Collect results
-      local_action:
-        module: copy
+    - name: Save results on target host
+      copy:
         content: "{{ inventory_hostname }},{{ inspect_result.stdout }}"
-        dest: "/path/to/results/{{ inventory_hostname }}_inspect.csv"
+        dest: "/tmp/{{ inventory_hostname }}_inspect.csv"
 
-    - name: Remove inspect binary
-      file:
-        path: /tmp/inspect
-        state: absent
+    - name: Ensure results directory exists on Ansible controller
+      local_action:
+        module: file
+        path: "/tmp/results"
+        state: directory
+      run_once: true
+
+    - name: Fetch results from target hosts
+      fetch:
+        src: "/tmp/{{ inventory_hostname }}_inspect.csv"
+        dest: "/tmp/results/"
+        flat: yes
+
 ```
 
 Запустите playbook:
