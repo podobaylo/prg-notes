@@ -59,18 +59,15 @@ HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
 1. Сохранение вывода в файл:
 
 ./inspect > system_info.csv
-text
 
 2. Периодический мониторинг с помощью cron:
 Добавьте в crontab строку:
 
 */5 * * * * /path/to/inspect >> /var/log/system_monitor.log
-text
 
 3. Извлечение конкретных данных:
 
 ./inspect | awk -F',' '{print $2","$4","$18}' # Выводит hostname, CPU cores и IP
-text
 
 ### Использование с Ansible для инспектирования множества систем
 
@@ -106,11 +103,11 @@ text
         state: absent
 
 Запустите playbook:
-text
+
 ansible-playbook -i your_inventory inspect_systems.yml
 
 Объедините результаты в один файл:
-text
+
 cat /path/to/results/*_inspect.csv > all_systems_inspect.csv
 
 
