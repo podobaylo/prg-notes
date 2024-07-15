@@ -29,12 +29,10 @@ Linux System Inspector - это легковесная утилита коман
 1. Клонируйте репозиторий:
 
 git clone https://github.com/podobaylo/prg-notes.git
-text
 
 2. Перейдите в директорию проекта:
 
 cd prg-notes/linux/inspect-linux
-text
 
 3. Скомпилируйте программу:
 
@@ -46,31 +44,27 @@ gcc -o inspect inspect-linux.c
 
 
 ./inspect
-text
+
 
 Вывод будет представлен в формате CSV, удобном для дальнейшей обработки:
 
 
 HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
-text
 
 ## Примеры использования
 
 1. Сохранение вывода в файл:
 
 ./inspect > system_info.csv
-text
 
 2. Периодический мониторинг с помощью cron:
 Добавьте в crontab строку:
 
 */5 * * * * /path/to/inspect >> /var/log/system_monitor.log
-text
 
 3. Извлечение конкретных данных:
 
 ./inspect | awk -F',' '{print $2","$4","$18}' # Выводит hostname, CPU cores и IP
-text
 
 ## Вклад в проект
 
