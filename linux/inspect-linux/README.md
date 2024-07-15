@@ -101,6 +101,7 @@ HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
       file:
         path: /tmp/inspect
         state: absent
+```
 
 Запустите playbook:
 
