@@ -38,8 +38,7 @@ text
 
 3. Скомпилируйте программу:
 
-gcc -o inspect inspect-linux.c -lm
-text
+gcc -o inspect inspect-linux.c
 
 ## Использование
 
