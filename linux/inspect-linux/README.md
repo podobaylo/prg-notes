@@ -37,6 +37,7 @@ cd prg-notes/linux/inspect-linux
 3. Скомпилируйте программу:
 
 gcc -static -O2 -o inspect inspect-linux.c -lm
+
 ( gcc -o inspect inspect-linux.c )
 
 ## Использование
