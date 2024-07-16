@@ -128,6 +128,7 @@ ansible-playbook -i your_inventory inspect_systems.yml
 
 cat /path/to/results/*_inspect.csv > all_systems_inspect.csv
 
+( cat /tmp/results/* |awk '{for(i=1;i<=NF;i++) if($i !~ /:$/) printf "%s%s", $i, (i==NF?ORS:OFS)}' OFS=","  )
 
 ## Вклад в проект
 
