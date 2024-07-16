@@ -36,9 +36,9 @@ cd prg-notes/linux/inspect-linux
 
 3. Скомпилируйте программу:
 
-gcc -static -O2 -o si inspect-linux.c -lm
+Для максимальной портабельности: 
 
-( gcc -o si inspect-linux.c )
+gcc -static -O2 -o inspect inspect-linux.c -lm -static-libgcc -static-libstdc++ -lrt -lpthread -ldl
 
 ## Использование
 
