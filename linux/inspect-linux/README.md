@@ -78,11 +78,11 @@ HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
 1. Создайте Ansible playbook `inspect_systems.yml`:
 
 ```yaml
----                                                                                            
+---
 - name: Inspect systems
-  hosts: all                                                                                   
-  become: yes         
-  tasks:                                       
+  hosts: all
+  become: yes
+  tasks:
     - name: Check if inspect binary exists
       stat:
         path: /usr/local/bin/si
@@ -101,7 +101,7 @@ HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
 
     - name: Save results on target host
       copy:
-        content: "{{ inventory_hostname }},{{ inspect_result.stdout }}"
+        content: "{{ inventory_hostname }},{{ inspect_result.stdout }}\n"
         dest: "/tmp/{{ inventory_hostname }}_inspect.csv"
 
     - name: Ensure results directory exists on Ansible controller
@@ -116,6 +116,7 @@ HOSTNAME:,example.com,CPU:,4,RAM_TOTAL:,16384,RAM_FREE:,8192,...
         src: "/tmp/{{ inventory_hostname }}_inspect.csv"
         dest: "/tmp/results/"
         flat: yes
+
 
 ```
 
