@@ -138,22 +138,16 @@ cat /path/to/results/*_inspect.csv > all_systems_inspect.csv
 
 [MIT License](https://opensource.org/licenses/MIT)
 
-## Автор
-
-[prg.in.ua]
 
 ---
 
 Надеемся, что этот инструмент будет полезен для системных администраторов, DevOps инженеров и всех, кто работает с системами Linux!
 
 ## AI Collaboration
-
-This project was developed in collaboration with an AI language model created by Anthropic. The AI assistant provided guidance, code suggestions, and helped in refining the project structure and documentation. This collaboration showcases the potential of human-AI teamwork in software development.
-
-Key contributions of the AI assistant included:
-- Suggesting improvements to the code structure and functionality
-- Helping debug and optimize the code
-- Assisting in creating a comprehensive README and documentation
-- Providing insights on best practices for system information gathering in Linux
-
-While the core ideas and implementation decisions were made by the human developer, the AI played a supportive role throughout the development process, demonstrating how AI can be a valuable tool in modern software development workflows.
+Этот проект был разработан в сотрудничестве с моделью искусственного интеллекта, созданной Anthropic. ИИ-ассистент предоставил руководство, предложения по коду и помог в улучшении структуры проекта и документации. Это сотрудничество демонстрирует потенциал совместной работы человека и ИИ в разработке программного обеспечения.
+Ключевые вклады ИИ-ассистента включали:
+Предложения по улучшению структуры и функциональности кода
+Помощь в отладке и оптимизации кода
+Содействие в создании подробного README и документации
+Предоставление информации о лучших практиках сбора системной информации в Linux
+В то время как основные идеи и решения по реализации принимались человеком-разработчиком, ИИ играл вспомогательную роль на протяжении всего процесса разработки, демонстрируя, как ИИ может быть ценным инструментом в современных рабочих процессах разработки программного обеспечения.
