@@ -16,6 +16,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <math.h>
+#include <time.h>
 
 #ifdef __linux__
 #include <sys/sysinfo.h>
@@ -202,6 +203,14 @@ int main() {
     char ip[16] = {0};
     double cpu_usage = 0;
 
+    // Добавляем переменные для даты и времени
+    time_t t = time(NULL);
+    struct tm *tm = localtime(&t);
+    char datetime[64];
+
+    // Форматируем дату и время
+    strftime(datetime, sizeof(datetime), "%Y-%m-%d %H:%M:%S", tm);
+
 #ifdef __linux__
     struct sysinfo si;
 
@@ -235,9 +244,9 @@ int main() {
     double load_avg = get_load_avg();
     char* formatted_uptime = format_uptime(uptime);
 
-    printf("HOSTNAME: %s CPU: %ld RAM_TOTAL: %llu RAM_FREE: %llu DISK_TOTAL: %llu DISK_FREE: %llu LOAD_AVG: %.2f "
+    printf("DATETIME: %s HOSTNAME: %s CPU: %ld RAM_TOTAL: %llu RAM_FREE: %llu DISK_TOTAL: %llu DISK_FREE: %llu LOAD_AVG: %.2f "
            "KERNEL: %s UPTIME: %s SWAP_TOTAL: %llu SWAP_FREE: %llu PROCESSES: %d IP: %s CPU_USAGE: %.2f%%\n", 
-           hostname, cpu_cores, (unsigned long long)ram_total, (unsigned long long)ram_free, 
+           datetime, hostname, cpu_cores, (unsigned long long)ram_total, (unsigned long long)ram_free, 
            (unsigned long long)disk.total, (unsigned long long)disk.free, load_avg,
            kernel, formatted_uptime, swap_total, swap_free, process_count, ip, cpu_usage);
 
