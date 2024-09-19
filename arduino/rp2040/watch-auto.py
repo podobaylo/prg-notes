@@ -262,5 +262,3 @@ while True:
     if adjustment_check_counter * MAIN_LOOP_DELAY >= CHECK_ADJUSTMENT_INTERVAL:
         check_time_adjustment()
         adjustment_check_counter = 0  # Сбрасываем счетчик
-
-
